@@ -70,7 +70,16 @@
       <file leaf-file-name="SimpleRayCaster.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/SimpleRayCaster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="13" selection-start="334" selection-end="334" vertical-scroll-proportion="0.2755102">
+            <state line="29" column="54" selection-start="671" selection-end="671" vertical-scroll-proportion="0.45824847">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IRenderer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex3/render/IRenderer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="74" selection-start="749" selection-end="749" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -89,15 +98,6 @@
         <entry file="file://$PROJECT_DIR$/src/math/Vec.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="56" column="16" selection-start="887" selection-end="887" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ray.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/math/Ray.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="26" selection-start="300" selection-end="300" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -171,11 +171,11 @@
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Light.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Material.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Object3D.java" />
-        <option value="$PROJECT_DIR$/src/ex3/render/raytrace/SimpleRayCaster.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Sphere.java" />
         <option value="$PROJECT_DIR$/src/math/Ray.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Scene.java" />
         <option value="$PROJECT_DIR$/src/math/Vec.java" />
+        <option value="$PROJECT_DIR$/src/ex3/render/raytrace/SimpleRayCaster.java" />
       </list>
     </option>
   </component>
@@ -508,13 +508,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20905173" sideWeight="0.6712329" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32808718" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20905173" sideWeight="0.6724782" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3275218" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -578,13 +578,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ex3/gui/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="339" column="36" selection-start="8198" selection-end="8198" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/math/Sphere.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="19" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0">
@@ -683,9 +676,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex3/render/IRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="74" selection-start="749" selection-end="749" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/SimpleRayCaster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="334" selection-end="334" vertical-scroll-proportion="0.2755102">
+        <state line="29" column="54" selection-start="671" selection-end="671" vertical-scroll-proportion="0.45824847">
           <folding />
         </state>
       </provider>

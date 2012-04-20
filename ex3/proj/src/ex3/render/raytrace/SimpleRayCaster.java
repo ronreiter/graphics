@@ -2,6 +2,7 @@ package ex3.render.raytrace;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.io.File;
 
 import ex3.parser.Element;
 import ex3.parser.SceneDescriptor;
@@ -22,7 +23,7 @@ public class SimpleRayCaster implements IRenderer {
 	protected Scene scene;
 
 	@Override
-	public void init(SceneDescriptor sceneDesc, int width, int height) {
+	public void init(SceneDescriptor sceneDesc, int width, int height, File file) {
 		this.width = width;
 		this.height = height;
 		scene = new Scene();
