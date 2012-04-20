@@ -14,18 +14,21 @@ public class Camera {
 	//instance variables
 	private Point3D eye = null;
 	private Vec direction = null;
-	private Vec up_direction = null;
-	private int screen_width;
-	private int screen_dist;
+	private Vec upDirection = null;
+	private Vec rightDirection = null;
+	private double screenWidth;
+	private double screenDist;
 
 
 
 	public Camera (Point3D eye, Vec direction, Vec up_direction, int screen_width, int screen_dist) {
 		this.eye = eye;
 		this.direction = direction;
-		this.up_direction = up_direction;
-		this.screen_width = this.screen_width;
-		this.screen_dist = screen_dist;
+		this.screenWidth = this.screenWidth;
+		this.screenDist = screen_dist;
+
+		rightDirection = Vec.crossProd(up_direction, direction);
+		this.upDirection = Vec.crossProd(direction, rightDirection);
 	}
 
 
@@ -38,11 +41,22 @@ public class Camera {
 	 * @return
 	 */
 	public Ray constructRayThroughPixel(int x, int y) {
-		
-		Vec right_direction = Vec.crossProd(up_direction, direction);
-		Poi
+
+		Point3D lookAt = new Point3D(eye);
+		Vec towards = new Vec(direction);
+		Vec up = new Vec(upDirection);
+		Vec right = new Vec(rightDirection);
+
+		towards.scale(screenDist);
+		up.scale(y);
+		right.scale(x);
+
+		lookAt.add(towards);
+		lookAt.add(right);
+		lookAt.add(up);
+
 		// Note - this is a trivial Orthographic camera
-		return new Ray(new Point3D(x, y, 0), new Vec(0, 0, -1));
+		return new Ray(eye, new Vec(lookAt, eye));
 	}
 
 }
