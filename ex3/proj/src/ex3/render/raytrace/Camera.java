@@ -4,6 +4,8 @@ import math.Point3D;
 import math.Ray;
 import math.Vec;
 
+import java.util.Map;
+
 /**
  * Represents the scene's camera.
  * 
@@ -19,17 +21,28 @@ public class Camera {
 	private double screenWidth;
 	private double screenDist;
 
+	public Camera () {
+        eye = new Point3D(0, 0, 0);
+        direction = new Vec(0, 0, -1);
+        upDirection = new Vec(0, 1, 0);
+        screenWidth = 2;
+        screenDist = 1;
 
+        rightDirection = Vec.crossProd(upDirection, direction);
 
-	public Camera (Point3D eye, Vec direction, Vec up_direction, int screen_width, int screen_dist) {
-		this.eye = eye;
-		this.direction = direction;
-		this.screenWidth = this.screenWidth;
-		this.screenDist = screen_dist;
-
-		rightDirection = Vec.crossProd(up_direction, direction);
-		this.upDirection = Vec.crossProd(direction, rightDirection);
 	}
+
+    public void init(Map<String, String> parameters) {
+        
+        eye = new Point3D(parameters.get("eye"));
+        direction = new Vec(parameters.get("direction"));
+        screenWidth = Double.parseDouble(parameters.get("screen-width"));
+        screenDist = Double.parseDouble(parameters.get("screen-dist"));
+        upDirection = new Vec(parameters.get("up-direction"));
+
+        rightDirection = Vec.crossProd(upDirection, direction);
+        upDirection = Vec.crossProd(direction, rightDirection);
+    }
 
 
 	/**

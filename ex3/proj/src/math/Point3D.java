@@ -33,7 +33,19 @@ public class Point3D {
         this.y = vector.y;
         this.z = vector.z;
     }
-    
+
+    public Point3D(String values) {
+        String[] valueArray = values.split(" ");
+
+        if (valueArray.length != 3) {
+            throw new IllegalArgumentException("Wrong number of parameters, got " + valueArray.length + " parameters.");
+        }
+
+        x = Double.parseDouble(valueArray[0]);
+        y = Double.parseDouble(valueArray[1]);
+        z = Double.parseDouble(valueArray[2]);
+    }
+
     public void add(Point3D point) {
         this.x += point.x;
         this.y += point.y;

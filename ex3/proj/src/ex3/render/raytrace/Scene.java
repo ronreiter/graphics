@@ -37,6 +37,10 @@ public class Scene implements IInitable {
 			ambientLight = new Vec(attributes.get("ambient-light"));
 	}
 
+    public void setCamera(Camera camera) {
+        this.camera = camera;
+    }
+    
 	/**
 	 * Send ray return the nearest intersection. Return null if no intersection
 	 * 

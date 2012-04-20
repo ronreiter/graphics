@@ -14,6 +14,7 @@ public class RayTracer implements IRenderer {
     protected int width;
     protected int height;
     protected Scene scene;
+    protected Camera camera;
 
     /**
      * Inits the renderer with scene description and sets the target canvas to
@@ -34,7 +35,12 @@ public class RayTracer implements IRenderer {
         this.width = width;
         this.height = height;
         scene = new Scene();
+        camera = new Camera();
+
         scene.init(sceneDesc.getSceneAttributes());
+        camera.init(sceneDesc.getCameraAttributes());
+
+        scene.setCamera(camera);
 
         for (Element e : sceneDesc.getObjects()) {
             scene.addObjectByName(e.getName(), e.getAttributes());
