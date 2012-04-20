@@ -22,7 +22,8 @@ public class Sphere extends Object3D {
 		// calculate sphere intersection using the algebraic method
         double b;
         double c;
-
+        double discriminant;
+        
         Vec directionTwice = new Vec(ray.direction);
         Vec diffVector = new Vec(ray.p_origin);
         directionTwice.scale(2);
@@ -35,7 +36,16 @@ public class Sphere extends Object3D {
         b = directionTwice.dotProd(diffVector);
         c = diffVector.lengthSquared() - radius * radius;
 
-        return (b * b - 4 * c) / 2;
+        discriminant = b * b - 4 * c;
+        
+        //System.out.println(ray.direction);
+        //System.out.println(discriminant);
+        
+        if (discriminant < 0) {
+            return Double.POSITIVE_INFINITY;
+        }
+        
+        return Math.min(-b + (Math.sqrt(discriminant) / 2), -b - (Math.sqrt(discriminant) / 2));
 	}
 
 	@Override

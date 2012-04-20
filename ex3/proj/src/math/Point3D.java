@@ -77,6 +77,15 @@ public class Point3D {
         this.z *= v.z;
     }
 
+    /**
+     * Returns a string that contains the values of this vector. The form is
+     * (x,y,z).
+     *
+     * @return the String representation
+     */
+    public String toString() {
+        return "(" + this.x + ", " + this.y + ", " + this.z + ")";
+    }
 
     
     

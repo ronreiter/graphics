@@ -35,7 +35,7 @@ public class RayTracer implements IRenderer {
         this.width = width;
         this.height = height;
         scene = new Scene();
-        camera = new Camera();
+        camera = new Camera(width, height);
 
         scene.init(sceneDesc.getSceneAttributes());
         camera.init(sceneDesc.getCameraAttributes());
@@ -74,9 +74,8 @@ public class RayTracer implements IRenderer {
      * @return Color at coordinate
      */
     protected Color castRay(int x, int y) {
-        Ray ray = scene.camera.constructRayThroughPixel(x, y);
+        Ray ray = scene.camera.constructRayThroughPixel(x - width / 2, y - height / 2);
         Hit hit = scene.findIntersection(ray);
-        System.out.println(scene.calcColor(hit, ray));
         return scene.calcColor(hit, ray);
     }
 }

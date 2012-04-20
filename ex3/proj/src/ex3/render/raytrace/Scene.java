@@ -27,7 +27,6 @@ public class Scene implements IInitable {
 		ambientLight = new Vec(0.5, 0.5, 0.5);
 		surfaces = new LinkedList<Object3D>();
 		lights = new LinkedList<Light>();
-		camera = new Camera();
 	}
 
 	public void init(Map<String, String> attributes) {
@@ -83,7 +82,7 @@ public class Scene implements IInitable {
 			return backgroundCol.toColor();
 
 		// TODO: Implement color calculation
-		return Color.GRAY;
+		return Color.PINK;
 	}
 
 	/**
