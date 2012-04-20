@@ -2,6 +2,7 @@ package ex3.render.raytrace;
 
 import java.util.Map;
 
+import com.sun.org.apache.xpath.internal.operations.Variable;
 import math.Ray;
 import math.Vec;
 
@@ -19,16 +20,33 @@ public class Sphere extends Object3D {
 	public double nearestIntersection(Ray ray) {
 
 		// calculate sphere intersection using the algebraic method
-        double a = 1;
-        double b = ray.direction.scale(2);
-		return Double.POSITIVE_INFINITY;
+        double b;
+        double c;
+
+        Vec directionTwice = new Vec(ray.direction);
+        Vec diffVector = new Vec(ray.p_origin);
+        directionTwice.scale(2);
+        diffVector.sub(center);
+
+        // solve the equation:
+        // a = 1
+        // b = 2V * (Po - O)
+        // c = |Po - 0|^2 - r^2
+        b = directionTwice.dotProd(diffVector);
+        c = diffVector.lengthSquared() - radius * radius;
+
+        return (b * b - 4 * c) / 2;
 	}
 
 	@Override
 	public Vec normalAt(Vec intersection, Ray ray) {
 
-		// TODO: Implement sphere normal computation
-		return null;
+        Vec normal = new Vec(intersection);
+        normal.sub(center);
+
+        normal.normalize();
+
+		return normal;
 	}
 
 	@Override
