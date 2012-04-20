@@ -17,10 +17,10 @@ public class Ray {
 	 * @param p - point of origin
 	 * @param v - ray direction
 	 */
-	/*
+
 	public Ray(Point3D p, Vec v) {
 		this.p = p;
 		this.v = v;
 	}
-	*/
+
 }
