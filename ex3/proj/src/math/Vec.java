@@ -1,6 +1,8 @@
 package math;
 
 
+import java.awt.*;
+
 /**
  * 3D vector class that contains three doubles. Could be used to represent
  * Vectors but also Points and Colors.
@@ -69,11 +71,29 @@ public class Vec {
         reflection.add(reflectionNormal);
         reflectionNormal.add(reflection);
         return reflectionNormal;
-
-
-
 	}
+    
+    public Vec(String values) {
+        String[] valueArray = values.split(" ");
 
+        if (valueArray.length != 3) {
+            throw new IllegalArgumentException("Wrong number of parameters, got " + valueArray.length + " parameters.");
+        }
+
+        x = Integer.parseInt(valueArray[0]);
+        y = Integer.parseInt(valueArray[1]);
+        z = Integer.parseInt(valueArray[2]);
+
+    }
+
+    private float limitColor(double color) {
+        return (float)Math.max(Math.min(color, 0), 1);
+    }
+    
+    public Color toColor() {
+        return new Color(limitColor(x), limitColor(y), limitColor(z));
+    }
+    
 	/**
 	 * Adds a to vector
 	 * 

@@ -3,10 +3,12 @@ package ex3.render.raytrace;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import raycaster.math.Ray;
-import raycaster.parser.Element;
-import raycaster.parser.SceneDescriptor;
-import raycaster.render.IRenderer;
+import ex3.parser.Element;
+import ex3.parser.SceneDescriptor;
+import ex3.render.IRenderer;
+import ex3.render.raytrace.Hit;
+import ex3.render.raytrace.Scene;
+import math.Ray;
 
 
 /**

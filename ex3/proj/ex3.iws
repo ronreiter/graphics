@@ -58,40 +58,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Point3D.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/math/Point3D.java">
+      <file leaf-file-name="SimpleRayCaster.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/SimpleRayCaster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="25" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RayTracer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/RayTracer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="42" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IInitable.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/IInitable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Camera.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Camera.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="41" selection-start="298" selection-end="298" vertical-scroll-proportion="0.5102041">
+            <state line="17" column="13" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Scene.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Scene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="32" selection-start="1406" selection-end="1406" vertical-scroll-proportion="1.5204082">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sphere.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Sphere.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="41" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vec.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/math/Vec.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="25" selection-start="1790" selection-end="1790" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,46 +109,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SceneXMLParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ex3/parser/SceneXMLParser.java">
+      <file leaf-file-name="Light.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Light.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="23" selection-start="620" selection-end="620" vertical-scroll-proportion="0.0">
+            <state line="4" column="7" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SceneDescriptor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ex3/parser/SceneDescriptor.java">
+      <file leaf-file-name="Material.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Material.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="4" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.0">
+            <state line="4" column="7" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sphere.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/math/Sphere.java">
+      <file leaf-file-name="Object3D.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Object3D.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="19" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0">
+            <state line="5" column="7" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImagePanel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ex3/gui/ImagePanel.java">
+      <file leaf-file-name="Camera.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Camera.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="13" selection-start="567" selection-end="567" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="8" column="23" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainFrame.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ex3/gui/MainFrame.java">
+      <file leaf-file-name="Hit.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Hit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="339" column="36" selection-start="8198" selection-end="8198" vertical-scroll-proportion="0.0">
+            <state line="2" column="7" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -165,12 +171,19 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/math/Vec.java" />
         <option value="$PROJECT_DIR$/src/math/Sphere.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/Scene.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/IInitable.java" />
         <option value="$PROJECT_DIR$/src/math/Ray.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Camera.java" />
+        <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Hit.java" />
+        <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Light.java" />
+        <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Material.java" />
+        <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Object3D.java" />
+        <option value="$PROJECT_DIR$/src/ex3/render/raytrace/SimpleRayCaster.java" />
+        <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Sphere.java" />
+        <option value="$PROJECT_DIR$/src/math/Vec.java" />
+        <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Scene.java" />
       </list>
     </option>
   </component>
@@ -572,27 +585,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/math/Vec.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="26" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/math/Point3D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="25" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex3/gui/ImagePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="567" selection-end="567" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ex3/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="339" column="36" selection-start="8198" selection-end="8198" vertical-scroll-proportion="0.0">
@@ -621,16 +613,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/RayTracer.java">
+    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/IInitable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="42" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
+        <state line="8" column="17" selection-start="148" selection-end="148" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/IInitable.java">
+    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/RayTracer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="26" column="42" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -644,7 +636,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="41" selection-start="298" selection-end="298" vertical-scroll-proportion="0.5102041">
+        <state line="8" column="23" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Hit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="7" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Light.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="7" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Material.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="7" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Object3D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="7" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Sphere.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="41" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/math/Vec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="25" selection-start="1790" selection-end="1790" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/SimpleRayCaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="32" selection-start="1406" selection-end="1406" vertical-scroll-proportion="1.5204082">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

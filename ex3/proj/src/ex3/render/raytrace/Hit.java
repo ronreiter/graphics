@@ -1,6 +1,6 @@
 package ex3.render.raytrace;
 
-import raycaster.math.Vec;
+import math.Vec;
 
 /**
  * Contains information regarding a ray-surface intersection.

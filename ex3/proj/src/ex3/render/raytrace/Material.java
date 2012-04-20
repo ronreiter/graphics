@@ -2,7 +2,7 @@ package ex3.render.raytrace;
 
 import java.util.Map;
 
-import raycaster.math.Vec;
+import math.Vec;
 
 
 /**
