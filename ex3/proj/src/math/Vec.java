@@ -86,14 +86,14 @@ public class Vec {
             throw new IllegalArgumentException("Wrong number of parameters, got " + valueArray.length + " parameters.");
         }
 
-        x = Integer.parseInt(valueArray[0]);
-        y = Integer.parseInt(valueArray[1]);
-        z = Integer.parseInt(valueArray[2]);
+        x = Double.parseDouble(valueArray[0]);
+        y = Double.parseDouble(valueArray[1]);
+        z = Double.parseDouble(valueArray[2]);
 
     }
 
     private float limitColor(double color) {
-        return (float)Math.max(Math.min(color, 0), 1);
+        return (float) (color > 1 ? 1 : color);
     }
     
     public Color toColor() {
