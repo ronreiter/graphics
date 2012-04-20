@@ -58,8 +58,8 @@ public class Scene implements IInitable {
 		if (Double.isInfinite(minDistance))
 			return null;
 
-		Vec intersection = new Vec(ray.p);
-		intersection.mac(minDistance, ray.v);
+		Vec intersection = new Vec(ray.p_origin);
+		intersection.mac(minDistance, ray.direction);
 
 		return new Hit(intersection, minSurface);
 	}

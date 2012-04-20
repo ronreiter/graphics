@@ -13,8 +13,8 @@ public class Ray {
 	
 	/**
 	 * constructs a new ray
-	 * @param p - point of origin
-	 * @param v - ray direction
+	 * @param p_origin - point of origin
+	 * @param direction - ray direction
 	 */
 
 	public Ray(Point3D p_origin, Vec direction) {

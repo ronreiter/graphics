@@ -52,7 +52,13 @@ public class Vec {
         z = v.z;
 	}
 
-	/**
+    public Vec(Point3D p) {
+        x = p.x;
+        y = p.y;
+        z = p.z;
+    }
+
+    /**
 	 * Calculates the reflection of the vector in relation to a given surface
 	 * normal. The vector points at the surface and the result points away.
 	 * 
