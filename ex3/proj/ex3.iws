@@ -69,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Scene.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Scene.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Scene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="32" selection-start="1406" selection-end="1406" vertical-scroll-proportion="1.5204082">
+            <state line="59" column="32" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ray.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Ray.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/math/Ray.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0">
+            <state line="13" column="42" selection-start="306" selection-end="306" vertical-scroll-proportion="0.39795917">
               <folding />
             </state>
           </provider>
@@ -627,13 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/math/Ray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="23" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
@@ -698,10 +691,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="32" selection-start="1406" selection-end="1406" vertical-scroll-proportion="1.5204082">
+        <state line="59" column="32" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/math/Ray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="42" selection-start="306" selection-end="306" vertical-scroll-proportion="0.39795917">
+          <folding />
         </state>
       </provider>
     </entry>
