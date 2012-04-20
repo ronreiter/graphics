@@ -1,0 +1,35 @@
+<scene 
+	background-col="0.3 0.5 0.74" 
+	ambient-light="1 1 1" 
+>
+
+	<camera
+	eye="0 0 0"
+	direction="0 0 -1"
+	screen-width="4"
+	screen-dist="1"
+	up-direction="0 1 0"
+	/>
+
+	<sphere 
+	center="0 0 -2"	
+	radius="0.5"
+	/>
+
+	<trimesh 
+	tri1 = "-1 -1 -2    1  -1 -2   -1 1 -2"
+	/>
+
+	<trimesh
+	tri1 = "-1000 -1  1000   1000 -1 1000   -1000 -1 -1000"
+	tri2 = "-1000 -1 -1000   1000 -1 1000    1000 -1 -1000"
+	/>
+
+	<omni-light 
+	pos="1 1 1"
+	color="1 1 1"
+	/>
+</scene>
+
+
+

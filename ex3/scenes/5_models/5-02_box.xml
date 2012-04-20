@@ -1,0 +1,53 @@
+<scene 
+	background-col="0.3 0.5 0.74" 
+	ambient-light="1 1 1" 
+>
+
+	<camera
+	eye="-2 2 -2"
+	look-at="0.5 0.5 -0.5"
+	screen-width="2"
+	screen-dist="1"
+	up-direction="0 1 0"
+	/>
+
+
+	<trimesh
+	tri1="0 0 0   0 1 0   0 1 -1"
+	tri2="0 0 0   0 1 -1   0 0 -1"
+	tri3="0 1 0   1 1 0   1 1 -1"
+	tri4="0 1 0   1 1 -1   0 1 -1"
+	tri5="0 0 -1   0 1 -1   1 1 -1"
+	tri6="0 0 -1   1 1 -1   1 0 -1"
+	tri7="1 0 0   0 0 0   1 0 -1"
+	tri8="1 0 -1   0 0 0   0 0 -1"
+	tri9="1 1 0   1 0 0   1 1 -1"
+	tri10="1 1 -1   1 0 0   1 0 -1"
+	tri11="0 1 0   0 0 0   1 1 0"
+	tri12="1 1 0   0 0 0   1 0 0"
+	mtl-diffuse="0.5 0 0"
+	/>
+
+
+	<trimesh
+	tri0="-10 0 10   10 0 10   -10 0 -10"
+	tri1="10 0 10   10 0 -10   -10 0 -10"
+	mtl-diffuse=".6 .8 .6"
+	/>
+
+
+	<omni-light 
+	pos="-2 2 0"
+	color="1 1 1"
+	/>
+
+	<omni-light 
+	pos="0 2 -2"
+	color="1 1 1"
+	/>
+
+
+</scene>
+
+
+
