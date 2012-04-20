@@ -18,7 +18,9 @@ public class Sphere extends Object3D {
 	@Override
 	public double nearestIntersection(Ray ray) {
 
-		// TODO: Implement sphere intersection
+		// calculate sphere intersection using the algebraic method
+        double a = 1;
+        double b = ray.direction.scale(2);
 		return Double.POSITIVE_INFINITY;
 	}
 

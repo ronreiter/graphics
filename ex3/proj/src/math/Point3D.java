@@ -39,6 +39,13 @@ public class Point3D {
         this.y += point.y;
         this.z += point.z;
     }
+
+    public void add(Vec v) {
+        this.x += v.x;
+        this.y += v.y;
+        this.z += v.z;
+    }
+
     
     public void sub(Point3D point) {
         this.x -= point.x;

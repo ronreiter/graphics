@@ -87,10 +87,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Vec.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Vec.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/math/Vec.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="32" selection-start="1879" selection-end="1879" vertical-scroll-proportion="0.21588595">
+            <state line="96" column="12" selection-start="1985" selection-end="1985" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sphere.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Sphere.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="41" selection-start="398" selection-end="398" vertical-scroll-proportion="0.36659878">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Point3D.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/math/Point3D.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="4" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -109,15 +127,6 @@
         <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Material.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="27" column="8" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Camera.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Camera.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="23" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -164,12 +173,13 @@
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Light.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Material.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Object3D.java" />
-        <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Sphere.java" />
         <option value="$PROJECT_DIR$/src/math/Ray.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Scene.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/SimpleRayCaster.java" />
         <option value="$PROJECT_DIR$/src/ex3/render/raytrace/RayTracer.java" />
         <option value="$PROJECT_DIR$/src/math/Vec.java" />
+        <option value="$PROJECT_DIR$/src/math/Point3D.java" />
+        <option value="$PROJECT_DIR$/src/ex3/render/raytrace/Sphere.java" />
       </list>
     </option>
   </component>
@@ -607,13 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Sphere.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="38" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="23" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
@@ -674,7 +677,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/math/Vec.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="32" selection-start="1879" selection-end="1879" vertical-scroll-proportion="0.21588595">
+        <state line="96" column="12" selection-start="1985" selection-end="1985" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/math/Point3D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="4" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ex3/render/raytrace/Sphere.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="41" selection-start="398" selection-end="398" vertical-scroll-proportion="0.36659878">
           <folding />
         </state>
       </provider>
