@@ -6,11 +6,10 @@ package math;
  * Remove the comments
  */
 public class Ray {
-
-	// point of origin
-	/* public Point3D p; */
-	// ray direction
-	/* public Vec v; */
+	
+	// instance variables
+	public Point3D p_origin;
+	public Vec direction;
 	
 	/**
 	 * constructs a new ray
@@ -18,9 +17,9 @@ public class Ray {
 	 * @param v - ray direction
 	 */
 
-	public Ray(Point3D p, Vec v) {
-		this.p = p;
-		this.v = v;
+	public Ray(Point3D p_origin, Vec direction) {
+		this.p_origin = p_origin;
+		 this.direction = direction;
 	}
 
 }
