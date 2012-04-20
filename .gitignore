@@ -4,3 +4,6 @@
 *.jar
 *.war
 *.ear
+ex3.ipr
+ex3.iws
+Proj.iml
