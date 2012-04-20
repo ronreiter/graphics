@@ -5,8 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import raycaster.math.Ray;
-import raycaster.math.Vec;
+import math.Ray;
+import math.Vec;
 
 
 /**
@@ -91,12 +91,12 @@ public class Scene implements IInitable {
 	 *            Object's attributes
 	 */
 	public void addObjectByName(String name, Map<String, String> attributes) {
-		if (name == "sphere") {
+		if (name.equals("sphere")) {
 			Object3D surface = new Sphere();
 			surface.init(attributes);
 			surfaces.add(surface);
 		}
-		if (name == "light-point") {
+		if (name.equals("light-point")) {
 			Light light = new Light();
 			light.init(attributes);
 			lights.add(light);
