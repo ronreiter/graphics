@@ -16,12 +16,14 @@ public class Material implements IInitable {
 	protected Vec emission;
 	protected Vec specular;
 	protected double shininess;
+    protected double reflectance;
 
 	public Material() {
 		diffuse = new Vec(0.7, 0.7, 0.7);
 		ambient = new Vec(0.1, 0.1, 0.1);
 		specular = new Vec(1, 1, 1);
 		emission = new Vec(0, 0, 0);
+        reflectance = 0;
 		shininess = 10;
 
 		new Vec(0.7, 0.7, 0.7);
@@ -49,5 +51,7 @@ public class Material implements IInitable {
 			ambient = new Vec(attributes.get("mtl-ambient"));
 		if (attributes.containsKey("mtl-shininess"))
 			shininess = Double.valueOf(attributes.get("mtl-shininess"));
+        if (attributes.containsKey("reflectance"))
+            reflectance = Double.valueOf(attributes.get("reflectance"));
 	}
 }
