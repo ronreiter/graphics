@@ -122,14 +122,17 @@ public class Scene implements IInitable {
             // Phong specular model
             // first, calculate the reflection direction vector
             Vec reflection = lightDirection.reflect(lightHitNormal);
-            
+
+            // first we multiply by the light color
             specular.scale(light.color);
+
+            // then, we multiply by the cosine of the angle between the reflected ray from the light and the viewport.
+            // we then multiply the scalar with the shininess factor to achieve greater shininiess.
             specular.scale(Math.pow(reflection.dotProd(ray.direction), hit.surface.material.shininess));
             specular.scale(lightDistanceAttenuation);
             lightSum.add(specular);            
             
-            
-            
+
 
         }
 
