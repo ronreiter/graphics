@@ -102,4 +102,8 @@ public class Point3D {
         return new Vec(x, y, z);
     }
     
+    public Point3D clone() {
+        return new Point3D(x, y, z);
+    }
+    
 }
