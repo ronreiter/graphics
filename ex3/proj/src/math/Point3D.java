@@ -76,6 +76,17 @@ public class Point3D {
         this.y *= v.y;
         this.z *= v.z;
     }
+    
+	/**
+	 * Multiplies & Accumulates point with given vector and a. v := v + s*a 
+	 * @param s Scalar
+	 * @param a Vector
+	 */
+	public void mac(double s, Vec a) {
+		x += s * a.x;
+        y += s * a.y;
+        z += s * a.z;
+	}
 
     /**
      * Returns a string that contains the values of this vector. The form is

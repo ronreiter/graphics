@@ -2,6 +2,7 @@ package ex3.render.raytrace;
 
 import java.util.Map;
 
+import math.Point3D;
 import math.Ray;
 import math.Vec;
 
@@ -36,5 +37,5 @@ public abstract class Object3D implements IInitable {
 	 *            Ray originating the intersection
 	 * @return Normalized vector
 	 */
-	public abstract Vec normalAt(Vec intersection, Ray ray);
+	public abstract Vec normalAt(Point3D intersection, Ray ray);
 }

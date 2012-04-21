@@ -2,6 +2,7 @@ package ex3.render.raytrace;
 
 import java.util.Map;
 
+import math.Point3D;
 import math.Ray;
 import math.Vec;
 
@@ -45,7 +46,7 @@ public class Sphere extends Object3D {
 	}
 
 	@Override
-	public Vec normalAt(Vec intersection, Ray ray) {
+	public Vec normalAt(Point3D intersection, Ray ray) {
 
         Vec normal = new Vec(intersection);
         normal.sub(center);

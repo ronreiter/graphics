@@ -62,7 +62,7 @@ public class Scene implements IInitable {
 		if (Double.isInfinite(minDistance))
 			return null;
 
-		Vec intersection = new Vec(ray.origin);
+		Point3D intersection = new Point3D(ray.origin);
 		intersection.mac(minDistance, ray.direction);
 
 		return new Hit(intersection, minSurface);
@@ -88,7 +88,7 @@ public class Scene implements IInitable {
         lightSum.add(Vec.scale(hit.surface.material.ambient, ambientLight));
 
         for (Light light : lights) {
-            Vec lightDirection = Vec.sub(hit.intersection, light.pos.toVec());
+            Vec lightDirection =  new Vec(hit.intersection, light.pos);
 
             // it's more efficient to get both distance types
             double lightDistance = lightDirection.length();
