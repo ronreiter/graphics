@@ -81,8 +81,7 @@ public class Scene implements IInitable {
 		if (hit == null)
 			return backgroundCol.toColor();
 
-		// TODO: Implement color calculation
-		return Color.PINK;
+		return hit.surface.material.ambient.toColor();
 	}
 
 	/**
