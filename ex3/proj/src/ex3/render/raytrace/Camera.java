@@ -19,17 +19,13 @@ public class Camera {
 	private Vec upDirection = null;
 	private Vec rightDirection = null;
 	private double viewportWidth;
-    private double viewportHeight;
 	private double viewportDist;
-    private double aspectRatio;
-    private int screenWidth;
-    private int screenHeight;
+    private int canvasWidth;
+    private int canvasHeight;
 
-	public Camera (int screenWidth, int screenHeight) {
-        this.screenWidth = screenWidth;
-        this.screenHeight = screenHeight;
-
-        aspectRatio = (double)screenWidth / (double)screenHeight;
+	public Camera (int canvasWidth, int screenHeight) {
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = screenHeight;
 
         eye = new Point3D(0, 0, 0);
         direction = new Vec(0, 0, -1);
@@ -54,14 +50,18 @@ public class Camera {
     }
 
     private void calculateVectors() {
-        viewportHeight = viewportWidth / aspectRatio;
-
         rightDirection = Vec.crossProd(upDirection, direction);
         upDirection = Vec.crossProd(direction, rightDirection);
 
+        // the vector size should be the size of one pixel in the 3d world instead of 1.
+        // first, normalize the size according to the canvas width.
+        double pixelSize = 1 / (double) canvasWidth;
 
-        rightDirection.scale(1 / (double)screenWidth);
-        upDirection.scale(1 / (double)screenHeight);
+        // then, increase the pixel size according to the viewport width.
+        pixelSize *= viewportWidth;
+
+        rightDirection.scale(pixelSize);
+        upDirection.scale(pixelSize);
     }
 
 	/**
@@ -78,10 +78,9 @@ public class Camera {
 		Vec up = new Vec(upDirection);
 		Vec right = new Vec(rightDirection);
 
-		towards.scale(viewportDist);
-        
-		right.scale(x);
-        up.scale(y);
+        towards.scale(viewportDist);
+		right.scale((double)x - (double) canvasWidth / 2);
+        up.scale((double)y - (double) canvasHeight / 2);
 
 		lookAt.add(towards);
 		lookAt.add(right);
