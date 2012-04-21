@@ -89,9 +89,6 @@ public class Camera {
         Vec rayDirection = new Vec(lookAt, eye);
         rayDirection.normalize();
         
-        System.out.println("look at: " + lookAt);
-        System.out.println("direction: " + rayDirection);
-
 		// Note - this is a trivial Orthographic camera
 		return new Ray(eye, rayDirection);
 	}

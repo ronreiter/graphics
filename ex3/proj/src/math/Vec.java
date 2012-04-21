@@ -100,7 +100,13 @@ public class Vec {
     }
 
     private float limitColor(double color) {
-        return (float) (color > 1 ? 1 : color);
+        if (color > 1) {
+            return 1;
+        }
+        if (color < 0) {
+            return 0;
+        }
+        return (float)color;
     }
     
     public Color toColor() {
@@ -379,4 +385,9 @@ public class Vec {
 	public Vec clone() {
 		return new Vec(this);
 	}
+
+    public Point3D toPoint() {
+        return new Point3D(x, y, z);
+    }
+
 }

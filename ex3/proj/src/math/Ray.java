@@ -8,7 +8,7 @@ package math;
 public class Ray {
 	
 	// instance variables
-	public Point3D p_origin;
+	public Point3D origin;
 	public Vec direction;
 	
 	/**
@@ -18,7 +18,7 @@ public class Ray {
 	 */
 
 	public Ray(Point3D p_origin, Vec direction) {
-		this.p_origin = p_origin;
+		this.origin = p_origin;
 		 this.direction = direction;
 	}
 

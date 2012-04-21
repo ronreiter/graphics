@@ -2,7 +2,6 @@ package ex3.render.raytrace;
 
 import java.util.Map;
 
-import com.sun.org.apache.xpath.internal.operations.Variable;
 import math.Ray;
 import math.Vec;
 
@@ -25,7 +24,7 @@ public class Sphere extends Object3D {
         double discriminant;
         
         Vec directionTwice = new Vec(ray.direction);
-        Vec diffVector = new Vec(ray.p_origin);
+        Vec diffVector = new Vec(ray.origin);
         directionTwice.scale(2);
         diffVector.sub(center);
 
@@ -38,13 +37,10 @@ public class Sphere extends Object3D {
 
         discriminant = b * b - 4 * c;
         
-        //System.out.println(ray.direction);
-        //System.out.println(discriminant);
-        
         if (discriminant < 0) {
             return Double.POSITIVE_INFINITY;
         }
-        
+
         return Math.min(-b + (Math.sqrt(discriminant) / 2), -b - (Math.sqrt(discriminant) / 2));
 	}
 

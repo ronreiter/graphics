@@ -87,6 +87,8 @@ public class Point3D {
         return "(" + this.x + ", " + this.y + ", " + this.z + ")";
     }
 
-    
+    public Vec toVec() {
+        return new Vec(x, y, z);
+    }
     
 }

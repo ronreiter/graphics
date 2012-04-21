@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import math.Point3D;
 import math.Ray;
 import math.Vec;
 
@@ -61,7 +62,7 @@ public class Scene implements IInitable {
 		if (Double.isInfinite(minDistance))
 			return null;
 
-		Vec intersection = new Vec(ray.p_origin);
+		Vec intersection = new Vec(ray.origin);
 		intersection.mac(minDistance, ray.direction);
 
 		return new Hit(intersection, minSurface);
@@ -77,11 +78,62 @@ public class Scene implements IInitable {
 	 * @return
 	 */
 	public Color calcColor(Hit hit, Ray ray) {
-
 		if (hit == null)
 			return backgroundCol.toColor();
 
-		return hit.surface.material.ambient.toColor();
+        // start from the ambient light color value
+        Vec lightSum = new Vec(hit.surface.material.emission);
+
+        // add the material ambient using the global ambient
+        lightSum.add(Vec.scale(hit.surface.material.ambient, ambientLight));
+
+        for (Light light : lights) {
+            Vec lightDirection = Vec.sub(hit.intersection, light.pos.toVec());
+
+            // it's more efficient to get both distance types
+            double lightDistance = lightDirection.length();
+            double lightDistanceSquared = lightDirection.lengthSquared();
+            lightDirection.normalize();
+
+            Ray lightRay = new Ray(light.pos, lightDirection);
+            Vec lightHitNormal = hit.surface.normalAt(hit.intersection, ray);
+
+            // calculate the dot product for diffusive shading
+            Vec diffuse = hit.surface.material.diffuse.clone();
+            Vec specular = hit.surface.material.specular.clone();
+
+            // Lambert diffusion
+            // multiply by the light color, diffusion amount by angle, and inverse square (3d distance) light attenuation
+            double diffusionAmount = lightHitNormal.dotProd(lightDirection);
+            double lightDistanceAttenuation = 1 / (light.kc + light.kl * lightDistance + light.kq * lightDistanceSquared);
+
+            // don't
+            if (diffusionAmount < 0) {
+                diffusionAmount = 0;
+            }
+
+            diffuse.scale(light.color);
+            diffuse.scale(diffusionAmount);
+            diffuse.scale(lightDistanceAttenuation);
+
+            lightSum.add(diffuse);
+            
+            
+            // Phong specular model
+            // first, calculate the reflection direction vector
+            Vec reflection = lightDirection.reflect(lightHitNormal);
+            
+            specular.scale(light.color);
+            specular.scale(Math.pow(reflection.dotProd(ray.direction), hit.surface.material.shininess));
+            specular.scale(lightDistanceAttenuation);
+            lightSum.add(specular);            
+            
+            
+            
+
+        }
+
+		return lightSum.toColor();
 	}
 
 	/**
@@ -98,10 +150,29 @@ public class Scene implements IInitable {
 			surface.init(attributes);
 			surfaces.add(surface);
 		}
-		if (name.equals("light-point")) {
-			Light light = new Light();
+
+        if (name.equals("trimesh")) {
+            Object3D surface = new TriMesh();
+            surface.init(attributes);
+            surfaces.add(surface);
+        }
+
+		if (name.equals("omni-light")) {
+			Light light = new OmniLight();
 			light.init(attributes);
 			lights.add(light);
 		}
+
+        if (name.equals("spot-light")) {
+            Light light = new SpotLight();
+            light.init(attributes);
+            lights.add(light);
+        }
+
+        if (name.equals("directional-light")) {
+            Light light = new DirectionalLight();
+            light.init(attributes);
+            lights.add(light);
+        }
 	}
 }
