@@ -48,11 +48,11 @@ public class Scene implements IInitable {
 	 * @return
 	 */
 	public Hit findIntersection(Ray ray) {
-
 		double minDistance = Double.POSITIVE_INFINITY;
 		Object3D minSurface = null;
 		for (Object3D surface : surfaces) {
 			double d = surface.nearestIntersection(ray);
+
 			if (minDistance > d) {
 				minDistance = d;
 				minSurface = surface;
@@ -80,7 +80,7 @@ public class Scene implements IInitable {
 	public Color calcColor(Hit hit, Ray ray) {
 		if (hit == null)
 			return backgroundCol.toColor();
-
+		
         // start from the ambient light color value
         Vec lightSum = new Vec(hit.surface.material.emission);
 
@@ -93,31 +93,31 @@ public class Scene implements IInitable {
             // it's more efficient to get both distance types
             double lightDistance = lightDirection.length();
             double lightDistanceSquared = lightDirection.lengthSquared();
+
             lightDirection.normalize();
 
             Ray lightRay = new Ray(light.pos, lightDirection);
-            Vec lightHitNormal = hit.surface.normalAt(hit.intersection, ray);
+            Vec lightHitNormal = hit.surface.normalAt(hit.intersection, lightRay);
 
             // calculate the dot product for diffusive shading
             Vec diffuse = hit.surface.material.diffuse.clone();
             Vec specular = hit.surface.material.specular.clone();
 
+			double lightDistanceAttenuation = 1 / (light.kc + light.kl * lightDistance + light.kq * lightDistanceSquared);
+
             // Lambert diffusion
             // multiply by the light color, diffusion amount by angle, and inverse square (3d distance) light attenuation
-            double diffusionAmount = lightHitNormal.dotProd(lightDirection);
-            double lightDistanceAttenuation = 1 / (light.kc + light.kl * lightDistance + light.kq * lightDistanceSquared);
+			// we negate the result because the light direction is facing the normal of the plane
+            double diffusionAmount = -lightHitNormal.dotProd(lightDirection);
 
-            // don't
             if (diffusionAmount < 0) {
                 diffusionAmount = 0;
             }
 
             diffuse.scale(light.color);
             diffuse.scale(diffusionAmount);
-            diffuse.scale(lightDistanceAttenuation);
 
             lightSum.add(diffuse);
-            
             
             // Phong specular model
             // first, calculate the reflection direction vector
@@ -128,11 +128,13 @@ public class Scene implements IInitable {
 
             // then, we multiply by the cosine of the angle between the reflected ray from the light and the viewport.
             // we then multiply the scalar with the shininess factor to achieve greater shininiess.
-            specular.scale(Math.pow(reflection.dotProd(ray.direction), hit.surface.material.shininess));
-            specular.scale(lightDistanceAttenuation);
-            lightSum.add(specular);            
+			double specularAmount = Math.pow(-reflection.dotProd(ray.direction), hit.surface.material.shininess);
+
+            specular.scale(specularAmount);
+            lightSum.add(specular);
             
 
+			lightSum.scale(lightDistanceAttenuation);
 
         }
 
