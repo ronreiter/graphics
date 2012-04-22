@@ -4,24 +4,20 @@ import math.Point3D;
 import math.Ray;
 import math.Vec;
 
-import java.awt.Point;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import javax.swing.text.PlainDocument;
 
 public class TriMesh extends Object3D {
 	List<Point3D[]> mesh;
 
 	@Override
 	public double nearestIntersection(Ray ray) {
-		double shortestLength = -1;
+		double shortestLength = Double.POSITIVE_INFINITY;
 
 		for (Point3D[] tri : mesh) {
 
-			Point3D intersectionPoint = plainIntersection(ray, tri);
+			Point3D intersectionPoint = planeIntersection(ray, tri);
 
 			if (intersectionPoint != null) {
 				double length = new Vec(intersectionPoint, ray.origin).length();
@@ -70,7 +66,7 @@ public class TriMesh extends Object3D {
 		}
 	}
 
-	public Point3D plainIntersection(Ray ray, Point3D[] tri) {
+	public Point3D planeIntersection(Ray ray, Point3D[] tri) {
 		Vec v1 = new Vec(tri[1], tri[0]);
 		Vec v2 = new Vec(tri[2], tri[0]);
 		Point3D intersectionPoint;
@@ -80,7 +76,7 @@ public class TriMesh extends Object3D {
 
 		// check if ray direction is parallel to plane 
 		double RayNormalDot = Vec.dotProd(ray.direction, planeNormal);
-		if (RayNormalDot <= 0.0D) {
+		if (RayNormalDot <= 0) {
 			return null;
 		}
 
@@ -106,7 +102,7 @@ public class TriMesh extends Object3D {
 		Vec normal2 = Vec.crossProd(v2, v3);
 		Vec normal3 = Vec.crossProd(v3, v1);
 
-		if (normal1.length() > 0.0 && normal2.length() > 0.0 && normal3.length() > 0.0) {
+		if (normal1.length() > 0 && normal2.length() > 0 && normal3.length() > 0) {
 			normal1.normalize();
 			normal2.normalize();
 			normal3.normalize();
@@ -116,15 +112,15 @@ public class TriMesh extends Object3D {
 
 		Vec rayOriginToIntersection = new Vec(intersectionPoint, ray.origin);
 
-		if (Vec.dotProd(rayOriginToIntersection, normal1) < 0.0) { 
+		if (Vec.dotProd(rayOriginToIntersection, normal1) < 0) {
 			return false;
 		}
 
-		if (Vec.dotProd(rayOriginToIntersection, normal2) < 0.0) { 
+		if (Vec.dotProd(rayOriginToIntersection, normal2) < 0) {
 			return false;
 		}
 
-		if (Vec.dotProd(rayOriginToIntersection, normal3) < 0.0) { 
+		if (Vec.dotProd(rayOriginToIntersection, normal3) < 0) {
 			return false;
 		}
 
