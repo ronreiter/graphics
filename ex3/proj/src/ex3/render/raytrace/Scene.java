@@ -128,11 +128,13 @@ public class Scene implements IInitable {
 
             // then, we multiply by the cosine of the angle between the reflected ray from the light and the viewport.
             // we then multiply the scalar with the shininess factor to achieve greater shininiess.
-			double specularAmount = Math.pow(-reflection.dotProd(ray.direction), hit.surface.material.shininess);
+			// TODO: 10 WTF?!?!
+			if (reflection.dotProd(ray.direction) < 0) {
+				double specularAmount = Math.pow(-reflection.dotProd(ray.direction), hit.surface.material.shininess * 10);
 
-            specular.scale(specularAmount);
-            lightSum.add(specular);
-            
+				specular.scale(specularAmount);
+				lightSum.add(specular);
+			}
 
 			lightSum.scale(lightDistanceAttenuation);
 
