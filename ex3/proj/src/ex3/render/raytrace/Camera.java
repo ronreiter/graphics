@@ -50,8 +50,8 @@ public class Camera {
     }
 
     private void calculateVectors() {
-        rightDirection = Vec.crossProd(upDirection, direction);
-        upDirection = Vec.crossProd(direction, rightDirection);
+        rightDirection = Vec.crossProd(direction, upDirection);
+        upDirection = Vec.crossProd(rightDirection, direction);
 
         // the vector size should be the size of one pixel in the 3d world instead of 1.
         // first, normalize the size according to the canvas width.
