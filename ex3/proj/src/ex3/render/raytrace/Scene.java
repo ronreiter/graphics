@@ -43,7 +43,7 @@ public class Scene implements IInitable {
     
 	/**
 	 * Send ray return the nearest intersection. Return null if no intersection
-	 * 
+	 * e
 	 * @param ray
 	 * @return
 	 */

@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 public class TriMesh extends Object3D {
+	
+	private static final double epsilon = 0.005; 
 	List<Point3D[]> mesh;
 
 	@Override
@@ -35,6 +37,13 @@ public class TriMesh extends Object3D {
 
 	@Override
 	public Vec normalAt(Point3D intersection, Ray ray) {
+		
+		for (Point3D[] tri : mesh) {
+			
+			
+		}
+		
+		
 		return null; 
 	}
 
@@ -74,12 +83,12 @@ public class TriMesh extends Object3D {
 		Vec planeNormal =  Vec.crossProd(v1, v2);
 		Point3D planePoint = tri[0];
 
-		// check if ray direction is parallel to plane 
+		// check if ray direction is parallel to planed 
 		double RayNormalDot = Vec.dotProd(ray.direction, planeNormal);
 		if (RayNormalDot <= 0) {
 			return null;
 		}
-
+		
 		Vec rayOriginToPlanePoint = new Vec(planePoint, ray.origin);
 		double normalDotRoToPp = Vec.dotProd(rayOriginToPlanePoint, planeNormal);
 		double distanceScalar = normalDotRoToPp / RayNormalDot;
