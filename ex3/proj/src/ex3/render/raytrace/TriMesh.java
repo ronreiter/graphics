@@ -31,7 +31,7 @@ public class TriMesh extends Object3D {
 		}
 		return shortestLength;
 	}
-	
+
 
 	@Override
 	public Vec normalAt(Point3D intersection, Ray ray) {
