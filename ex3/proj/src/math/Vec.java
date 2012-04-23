@@ -87,7 +87,14 @@ public class Vec {
 	}
     
     public Vec(String values) {
-        String[] valueArray = values.split(" ");
+		if (values == null) {
+			x = 0;
+			y = 0;
+			z = 0;
+			return;
+		}
+
+        String[] valueArray = values.split("\\s+");
 
         if (valueArray.length != 3) {
             throw new IllegalArgumentException("Wrong number of parameters, got " + valueArray.length + " parameters.");
