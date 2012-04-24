@@ -61,7 +61,7 @@ public class RayTracer implements IRenderer {
 
         int y = line;
         for (int x = 0; x < width; ++x) {
-            canvas.setRGB(x, y, castRay(width - x - 1, height - y - 1).getRGB());
+            canvas.setRGB(x, y, castRay(x, height - y - 1).getRGB());
         }
 
     }

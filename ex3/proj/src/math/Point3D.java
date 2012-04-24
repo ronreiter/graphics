@@ -35,6 +35,13 @@ public class Point3D {
     }
 
     public Point3D(String values) {
+		if (values == null) {
+			x = 0;
+			y = 0;
+			z = 0;
+			return;
+		}
+
         String[] valueArray = values.split("\\s+");
 
         if (valueArray.length != 3) {
