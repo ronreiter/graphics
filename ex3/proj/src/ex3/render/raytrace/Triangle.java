@@ -10,8 +10,6 @@ public class Triangle extends Object3D {
 	private Point3D p1 = null;
 	private Point3D p2 = null;
 
-
-
 	public Triangle (Point3D[] tri, Material material) {
 		p0 = tri[0];
 		p1 = tri[1];
@@ -23,7 +21,7 @@ public class Triangle extends Object3D {
 	@Override
 	public Vec normalAt(Point3D intersection, Ray ray) {
 
-		Vec normal = new Vec(Vec.crossProd(new Vec(p1, p0), new Vec(p2, p0)));
+		Vec normal = new Vec(Vec.crossProd(new Vec(p2, p0), new Vec(p1, p0)));
 		normal.normalize();
 
 		if (Vec.dotProd(normal, ray.direction) > 0) {
@@ -37,7 +35,8 @@ public class Triangle extends Object3D {
 		Vec v2 = new Vec(p2, p0);
 		Point3D intersectionPoint;
 
-		Vec planeNormal = Vec.crossProd(v1, v2);
+		Vec planeNormal = Vec.crossProd(v2, v1);
+		planeNormal.normalize();
 		Point3D planePoint = p0;
 
 		// check if ray direction is parallel to plane
@@ -75,15 +74,15 @@ public class Triangle extends Object3D {
 
 		Vec rayOriginToIntersection = new Vec(intersectionPoint, ray.origin);
 
-		if (Vec.dotProd(rayOriginToIntersection, normal1) < 0) {
+		if (Vec.dotProd(rayOriginToIntersection, normal1) >= 0) {
 			return false;
 		}
 
-		if (Vec.dotProd(rayOriginToIntersection, normal2) < 0) {
+		if (Vec.dotProd(rayOriginToIntersection, normal2) >= 0) {
 			return false;
 		}
 
-		if (Vec.dotProd(rayOriginToIntersection, normal3) < 0) {
+		if (Vec.dotProd(rayOriginToIntersection, normal3) >= 0) {
 			return false;
 		}
 
