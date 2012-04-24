@@ -51,6 +51,8 @@ public class TriMesh extends Object3D {
 	}
 
 	public void init(Map<String, String> attributes) {
+		super.init(attributes);
+
 		mesh = new ArrayList<Triangle>();
 
 		for (String attribute : attributes.keySet()) {
@@ -73,11 +75,10 @@ public class TriMesh extends Object3D {
 						Double.parseDouble(triangleValues[7]),
 						Double.parseDouble(triangleValues[8]));
 
-				mesh.add(new Triangle(tri));
+				mesh.add(new Triangle(tri, this.material));
 			}
 		}
 
-		super.init(attributes);
 
 	}
 

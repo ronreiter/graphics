@@ -79,9 +79,9 @@ public class Scene implements IInitable {
 	 *            Hitting ray
 	 * @return
 	 */
-	public Color calcColor(Hit hit, Ray ray) {
+	public Vec calcColor(Hit hit, Ray ray) {
 		if (hit == null)
-			return backgroundCol.toColor();
+			return backgroundCol;
 
 		// start from the ambient light color value
 		Vec lightSum = new Vec(hit.surface.material.emission);
@@ -142,7 +142,7 @@ public class Scene implements IInitable {
 
 		}
 
-		return lightSum.toColor();
+		return lightSum;
 	}
 
 	/**

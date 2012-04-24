@@ -12,11 +12,11 @@ public class Triangle extends Object3D {
 
 
 
-	public Triangle (Point3D[] tri) { 
+	public Triangle (Point3D[] tri, Material material) {
 		p0 = tri[0];
 		p1 = tri[1];
 		p2 = tri[2];
-		
+		this.material = material;
 	}
 
 

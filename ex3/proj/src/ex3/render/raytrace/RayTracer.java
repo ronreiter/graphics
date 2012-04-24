@@ -76,6 +76,6 @@ public class RayTracer implements IRenderer {
     protected Color castRay(int x, int y) {
         Ray ray = scene.camera.constructRayThroughPixel(x, y);
         Hit hit = scene.findIntersection(ray);
-        return scene.calcColor(hit, ray);
+        return scene.calcColor(hit, ray).toColor();
     }
 }
