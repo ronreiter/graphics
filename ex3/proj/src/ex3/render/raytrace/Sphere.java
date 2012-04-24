@@ -18,7 +18,7 @@ public class Sphere extends Object3D {
 	protected Point3D center;
 	protected double radius;
 
-	public double nearestIntersection(Ray ray)
+	public Hit nearestIntersection(Ray ray)
 	{
 		double b;
 		double c;
@@ -36,7 +36,7 @@ public class Sphere extends Object3D {
 		disc = b * b - 4 * c;
 	
 		if (disc < 0) {
-			return Double.POSITIVE_INFINITY;
+			return null;
 		}
 		
 		if (b < 0) {
@@ -50,24 +50,33 @@ public class Sphere extends Object3D {
 
 		if (t1 < t2) {
 			if (t2 < 0) {
-				return Double.POSITIVE_INFINITY;
+				return null;
 			}
 
 			if (t1 < 0) {
-				return t2;
+				Point3D intersection = new Point3D(ray.origin);
+				intersection.mac(t2, ray.direction);
+				return new Hit(intersection, this, t2);
 			}
 
-			return t1;
+			Point3D intersection = new Point3D(ray.origin);
+			intersection.mac(t1, ray.direction);
+			return new Hit(intersection, this, t1);
+			
 		} else {
 			if (t1 < 0) {
-				return Double.POSITIVE_INFINITY;
+				return null;
 			}
 
 			if (t2 < 0) {
-				return t1;
+				Point3D intersection = new Point3D(ray.origin);
+				intersection.mac(t1, ray.direction);
+				return new Hit(intersection, this, t1);
 			}
 
-			return t2;
+			Point3D intersection = new Point3D(ray.origin);
+			intersection.mac(t2, ray.direction);
+			return new Hit(intersection, this, t2);
 
 		}
 

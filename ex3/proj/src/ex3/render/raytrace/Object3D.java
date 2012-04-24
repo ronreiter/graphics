@@ -26,7 +26,7 @@ public abstract class Object3D implements IInitable {
 	 * @param ray
 	 * @return Scalar positive distance
 	 */
-	public abstract double nearestIntersection(Ray ray);
+	public abstract Hit nearestIntersection(Ray ray);
 
 	/**
 	 * Computes the surface's normal at a given intersection point

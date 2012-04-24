@@ -9,36 +9,41 @@ import java.util.List;
 import java.util.Map;
 
 public class TriMesh extends Object3D {
-	List<Point3D[]> mesh;
+	List<Triangle> mesh;
 
 	@Override
-	public double nearestIntersection(Ray ray) {
-		double shortestLength = Double.POSITIVE_INFINITY;
+	public Hit nearestIntersection(Ray ray) {
+		double minDistance = Double.POSITIVE_INFINITY;
+		Object3D nearestTri = null;
+		Point3D nearestIntersection = null;
+		
 
-		for (Point3D[] tri : mesh) {
+		for (Triangle tri : mesh) {
 
-			Point3D intersectionPoint = planeIntersection(ray, tri);
+			Point3D intersectionPoint = tri.planeIntersection(ray);
 
 			if (intersectionPoint != null) {
 				double length = new Vec(intersectionPoint, ray.origin).length();
 				length = length / ray.direction.length();
 
-				if (length < shortestLength && intersectTri(tri, intersectionPoint, ray)) {			 
-					shortestLength = length;
+				if (length < minDistance && tri.intersectTri(intersectionPoint, ray)) {			 
+					minDistance = length;
+					nearestTri = tri;
+					nearestIntersection = intersectionPoint;
 				}
 
 			}
 		}
-		return shortestLength;
+		return new Hit( nearestIntersection, nearestTri, minDistance);
 	}
 
 
 	@Override
 	public Vec normalAt(Point3D intersection, Ray ray) {
-		for (Point3D[] tri : mesh) {
-			if (intersectTri(tri, intersection, ray)) {
-				Vec v1 = new Vec(tri[1], tri[0]);
-				Vec v2 = new Vec(tri[2], tri[0]);
+		for (Triangle tri : mesh) {
+			if (tri.intersectTri(intersection, ray)) {
+				Vec v1 = new Vec(tri.getP1(), tri.getP0());
+				Vec v2 = new Vec(tri.getP2(), tri.getP0());
 				return Vec.crossProd(v1, v2);
 			}
 		}
@@ -46,7 +51,7 @@ public class TriMesh extends Object3D {
 	}
 
 	public void init(Map<String, String> attributes) {
-		mesh = new ArrayList<Point3D[]>();
+		mesh = new ArrayList<Triangle>();
 
 		for (String attribute : attributes.keySet()) {
 			if (attribute.startsWith("tri")) {
@@ -68,7 +73,7 @@ public class TriMesh extends Object3D {
 						Double.parseDouble(triangleValues[7]),
 						Double.parseDouble(triangleValues[8]));
 
-				mesh.add(tri);
+				mesh.add(new Triangle(tri));
 			}
 		}
 
@@ -76,66 +81,9 @@ public class TriMesh extends Object3D {
 
 	}
 
-	public Point3D planeIntersection(Ray ray, Point3D[] tri) {
-		Vec v1 = new Vec(tri[1], tri[0]);
-		Vec v2 = new Vec(tri[2], tri[0]);
-		Point3D intersectionPoint;
+	
 
-		Vec planeNormal = Vec.crossProd(v1, v2);
-		Point3D planePoint = tri[0];
-
-		// check if ray direction is parallel to plane
-		double RayNormalDot = Vec.dotProd(ray.direction, planeNormal);
-		if (RayNormalDot <= 0) {
-			return null;
-		}
-
-		Vec rayOriginToPlanePoint = new Vec(planePoint, ray.origin);
-		double normalDotRoToPp = Vec.dotProd(rayOriginToPlanePoint, planeNormal);
-		double distanceScalar = normalDotRoToPp / RayNormalDot;
-
-		intersectionPoint = new Point3D(ray.origin);
-		intersectionPoint.mac(distanceScalar, ray.direction);
-
-		return intersectionPoint;
-
-
-
-	}
-
-	public boolean intersectTri(Point3D[] tri, Point3D intersectionPoint, Ray ray){
-		Vec v1 = new Vec(tri[0], ray.origin);
-		Vec v2 = new Vec(tri[1], ray.origin);
-		Vec v3 = new Vec(tri[2], ray.origin);
-
-		Vec normal1 = Vec.crossProd(v1, v2);
-		Vec normal2 = Vec.crossProd(v2, v3);
-		Vec normal3 = Vec.crossProd(v3, v1);
-
-		if (normal1.length() > 0 && normal2.length() > 0 && normal3.length() > 0) {
-			normal1.normalize();
-			normal2.normalize();
-			normal3.normalize();
-		} else {
-			return false;
-		}
-
-		Vec rayOriginToIntersection = new Vec(intersectionPoint, ray.origin);
-
-		if (Vec.dotProd(rayOriginToIntersection, normal1) < 0) {
-			return false;
-		}
-
-		if (Vec.dotProd(rayOriginToIntersection, normal2) < 0) {
-			return false;
-		}
-
-		if (Vec.dotProd(rayOriginToIntersection, normal3) < 0) {
-			return false;
-		}
-
-		return true;
-	}
+	
 
 
 }
