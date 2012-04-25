@@ -95,15 +95,15 @@ public class Triangle extends Object3D {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public Point3D getP0() {
 		return p0;
 	}
-	
+
 	public Point3D getP1() {
 		return p1;
 	} 
-	
+
 	public Point3D getP2() {
 		return p2;
 	}

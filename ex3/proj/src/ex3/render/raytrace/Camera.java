@@ -26,7 +26,6 @@ public class Camera {
 	public Camera (int canvasWidth, int screenHeight) {
         this.canvasWidth = canvasWidth;
         this.canvasHeight = screenHeight;
-
         eye = new Point3D(0, 0, 0);
         direction = new Vec(0, 0, -1);
         upDirection = new Vec(0, 1, 0);
@@ -34,7 +33,6 @@ public class Camera {
         viewportDist = 1;
 
         calculateVectors();
-
 	}
 
     public void init(Map<String, String> parameters) {
@@ -53,9 +51,8 @@ public class Camera {
 
 		if (parameters.get("up-direction") != null)
         	upDirection = new Vec(parameters.get("up-direction"));
-
+		
         calculateVectors();
-
     }
 
     private void calculateVectors() {
@@ -81,15 +78,15 @@ public class Camera {
 	 * @param y
 	 * @return
 	 */
-	public Ray constructRayThroughPixel(int x, int y) {
+	public Ray constructRayThroughPixel(double x, double y) {
 		Point3D lookAt = new Point3D(eye);
 		Vec towards = new Vec(direction);
 		Vec up = new Vec(upDirection);
 		Vec right = new Vec(rightDirection);
 
         towards.scale(viewportDist);
-		right.scale((double)x - (double) canvasWidth / 2);
-        up.scale((double)y - (double) canvasHeight / 2);
+		right.scale(x - (double) canvasWidth / 2);
+        up.scale(y - (double) canvasHeight / 2);
 
 		lookAt.add(towards);
 		lookAt.add(right);

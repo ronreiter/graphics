@@ -92,7 +92,6 @@ public class Scene implements IInitable {
 		for (Light light : lights) {
 			lightSum.add(light.getIllumination(hit, ray));
 
-
 		}
 
 		return lightSum;

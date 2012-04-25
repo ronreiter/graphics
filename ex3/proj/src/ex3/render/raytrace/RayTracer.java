@@ -8,6 +8,7 @@ import ex3.parser.Element;
 import ex3.parser.SceneDescriptor;
 import ex3.render.IRenderer;
 import math.Ray;
+import math.Vec;
 
 public class RayTracer implements IRenderer {
 
@@ -63,7 +64,6 @@ public class RayTracer implements IRenderer {
         for (int x = 0; x < width; ++x) {
             canvas.setRGB(x, y, castRay(x, height - y - 1).getRGB());
         }
-
     }
 
     /**
@@ -74,8 +74,17 @@ public class RayTracer implements IRenderer {
      * @return Color at coordinate
      */
     protected Color castRay(int x, int y) {
-        Ray ray = scene.camera.constructRayThroughPixel(x, y);
-        Hit hit = scene.findIntersection(ray);
-        return scene.calcColor(hit, ray).toColor();
+    	Vec averageColor = new Vec();
+    	for (double i = (double)x; i < (double)(x + 1); i += 0.5) {
+    		for (double j = (double)y; j < (double)(y + 1); j += 0.5) {
+    	        Ray ray = scene.camera.constructRayThroughPixel(i, j);
+    	        Hit hit = scene.findIntersection(ray);
+
+    			averageColor.add(scene.calcColor(hit, ray));
+    		}
+    	}
+    	averageColor.scale(0.25);
+    	
+        return averageColor.toColor();
     }
 }
