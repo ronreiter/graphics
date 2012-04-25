@@ -71,8 +71,7 @@ public class Light {
 		}
 
 		diffuse.scale(this.color);
-		// TODO: fix 10
-		diffuse.scale(diffusionAmount / 10);
+		diffuse.scale(diffusionAmount);
 
 		lightSum.add(diffuse);
 
