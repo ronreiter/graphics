@@ -8,8 +8,8 @@ import java.util.Map;
 public class SpotLight extends Light {
     Vec direction;
     
-    public SpotLight() {
-        super();
+    public SpotLight(Scene scene) {
+        super(scene);
         direction = new Vec(0, 0, -1);
     }
 

@@ -120,21 +120,16 @@ public class Scene implements IInitable {
 		}
 
 		if (name.equals("omni-light")) {
-			Light light = new OmniLight();
+			Light light = new OmniLight(this);
 			light.init(attributes);
 			lights.add(light);
 		}
 
 		if (name.equals("spot-light")) {
-			Light light = new SpotLight();
+			Light light = new SpotLight(this);
 			light.init(attributes);
 			lights.add(light);
 		}
 
-		if (name.equals("directional-light")) {
-			Light light = new DirectionalLight();
-			light.init(attributes);
-			lights.add(light);
-		}
 	}
 }
