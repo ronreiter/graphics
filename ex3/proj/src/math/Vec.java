@@ -57,6 +57,15 @@ public class Vec {
         y = p.y;
         z = p.z;
     }
+	
+	public Vec(Color color) {
+		// we can either divide getRed/getGreen/getBlue by 255 or do this.
+		float[] colors = new float[3];
+		color.getRGBColorComponents(colors);
+		x = colors[0];
+		y = colors[1];
+		z = colors[2];
+	}
     
     public Vec(Point3D dest, Point3D origin) {
     	x = dest.x - origin.x;

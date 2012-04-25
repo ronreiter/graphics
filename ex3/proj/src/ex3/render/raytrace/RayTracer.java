@@ -42,6 +42,7 @@ public class RayTracer implements IRenderer {
         camera.init(sceneDesc.getCameraAttributes());
 
         scene.setCamera(camera);
+		scene.loadResources(path);
 
         for (Element e : sceneDesc.getObjects()) {
             scene.addObjectByName(e.getName(), e.getAttributes());
@@ -59,10 +60,9 @@ public class RayTracer implements IRenderer {
      */
     @Override
     public void renderLine(BufferedImage canvas, int line) {
-
-        int y = line;
-        for (int x = 0; x < width; ++x) {
-            canvas.setRGB(x, y, castRay(x, height - y - 1).getRGB());
+		for (int x = 0; x < width; ++x) {
+			Color rayColor = castRay(x, height - line - 1);
+           	canvas.setRGB(x, line, rayColor.getRGB());
         }
     }
 
@@ -80,7 +80,7 @@ public class RayTracer implements IRenderer {
     	        Ray ray = scene.camera.constructRayThroughPixel(i, j);
     	        Hit hit = scene.findIntersection(ray);
 
-    			averageColor.add(scene.calcColor(hit, ray));
+    			averageColor.add(scene.calcColor(hit, ray, x, y));
     		}
     	}
     	averageColor.scale(0.25);
