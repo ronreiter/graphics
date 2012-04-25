@@ -38,12 +38,21 @@ public class Camera {
 	}
 
     public void init(Map<String, String> parameters) {
-        
-        eye = new Point3D(parameters.get("eye"));
-        direction = new Vec(parameters.get("direction"));
-        viewportWidth = Double.parseDouble(parameters.get("screen-width"));
-        viewportDist = Double.parseDouble(parameters.get("screen-dist"));
-        upDirection = new Vec(parameters.get("up-direction"));
+
+		if (parameters.get("eye") != null)
+        	eye = new Point3D(parameters.get("eye"));
+
+		if (parameters.get("direction") != null)
+	        direction = new Vec(parameters.get("direction"));
+
+		if (parameters.get("screen-width") != null)
+    	    viewportWidth = Double.parseDouble(parameters.get("screen-width"));
+
+		if (parameters.get("screen-height") != null)
+        	viewportDist = Double.parseDouble(parameters.get("screen-dist"));
+
+		if (parameters.get("up-direction") != null)
+        	upDirection = new Vec(parameters.get("up-direction"));
 
         calculateVectors();
 
@@ -88,7 +97,7 @@ public class Camera {
         
         Vec rayDirection = new Vec(lookAt, eye);
         rayDirection.normalize();
-        
+
 		// Note - this is a trivial Orthographic camera
 		return new Ray(eye, rayDirection);
 	}

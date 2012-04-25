@@ -24,6 +24,7 @@ public class Triangle extends Object3D {
 		Vec normal = new Vec(Vec.crossProd(new Vec(p2, p0), new Vec(p1, p0)));
 		normal.normalize();
 
+
 		if (Vec.dotProd(normal, ray.direction) > 0) {
 			normal.negate();
 		}

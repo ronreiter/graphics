@@ -24,20 +24,8 @@ public class Material implements IInitable {
 		specular = new Vec(1, 1, 1);
 		emission = new Vec(0, 0, 0);
         reflectance = 0;
-		shininess = 10;
+		shininess = 100;
 
-		new Vec(0.7, 0.7, 0.7);
-	}
-
-	/**
-	 * Returns the diffuse value at a given parameterization (u,v)
-	 * 
-	 * @param u
-	 * @param v
-	 * @return
-	 */
-	public Vec diffuseAt(double u, double v) {
-		return diffuse;
 	}
 
 	public void init(Map<String, String> attributes) {
