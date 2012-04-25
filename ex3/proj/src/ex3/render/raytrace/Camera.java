@@ -40,8 +40,15 @@ public class Camera {
 		if (parameters.get("eye") != null)
         	eye = new Point3D(parameters.get("eye"));
 
-		if (parameters.get("direction") != null)
-	        direction = new Vec(parameters.get("direction"));
+		if (parameters.get("direction") != null) {
+			direction = new Vec(parameters.get("direction"));
+			direction.normalize();
+		}
+
+		if (parameters.get("up-direction") != null) {
+			upDirection = new Vec(parameters.get("up-direction"));
+			upDirection.normalize();
+		}
 
 		if (parameters.get("screen-width") != null)
     	    viewportWidth = Double.parseDouble(parameters.get("screen-width"));
@@ -49,9 +56,6 @@ public class Camera {
 		if (parameters.get("screen-height") != null)
         	viewportDist = Double.parseDouble(parameters.get("screen-dist"));
 
-		if (parameters.get("up-direction") != null)
-        	upDirection = new Vec(parameters.get("up-direction"));
-		
         calculateVectors();
     }
 

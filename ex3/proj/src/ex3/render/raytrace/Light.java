@@ -13,18 +13,20 @@ import math.Vec;
  */
 public class Light {
 
+	protected Scene scene;
 	protected Point3D pos;
 	protected Vec color;
     protected double kc;
     protected double kl;
     protected double kq;    
 
-	public Light() {
-		pos = new Point3D(0, 0, 0);
-		color = new Vec(1,1,1);
-        kc = 0;
-        kl = 0.03;
-        kq = 0.001;
+	public Light(Scene scene) {
+		this.scene = scene;
+		this.pos = new Point3D(0, 0, 0);
+		this.color = new Vec(1,1,1);
+        this.kc = 0;
+        this.kl = 0.03;
+        this.kq = 0.001;
 	}
 
 	public void init(Map<String, String> attributes) {
@@ -40,21 +42,35 @@ public class Light {
             kq = Double.parseDouble(attributes.get("kq"));
     }
 
+	private boolean lightBlocked(Hit hit, Ray lightRay) {
+		// shoot a ray from the light and make sure that we hit what we saw.
+		Hit lightHit = scene.findIntersection(lightRay);
+		return (lightHit.surface != hit.surface);
+	}
+	
 	public Vec getIllumination(Hit hit, Ray ray) {
 		Vec lightSum = new Vec();
 
 		Vec lightDirection =  new Vec(hit.intersection, this.pos);
+		lightDirection.normalize();
+		Ray lightRay = new Ray(this.pos, lightDirection);
 
+		if (lightBlocked(hit, lightRay)) {
+			return lightSum;
+		}
+		
 		// it's more efficient to get both distance types
 		double lightDistanceAttenuation = 1 / (
 						this.kc +
 						this.kl * lightDirection.length() +
 						this.kq * lightDirection.lengthSquared());
 
-		lightDirection.normalize();
+		if (lightDistanceAttenuation > 1) {
+			lightDistanceAttenuation = 1;
+		}
 
-		Ray lightRay = new Ray(this.pos, lightDirection);
 		Vec lightHitNormal = hit.surface.normalAt(hit.intersection, lightRay);
+		lightHitNormal.normalize();
 
 		// calculate the dot product for diffusive shading
 		Vec diffuse = hit.surface.material.diffuse.clone();
@@ -72,7 +88,7 @@ public class Light {
 
 		diffuse.scale(this.color);
 		diffuse.scale(diffusionAmount);
-
+		
 		lightSum.add(diffuse);
 
 		// Phong specular model
@@ -92,6 +108,7 @@ public class Light {
 		}
 
 		lightSum.scale(lightDistanceAttenuation);
+
 
 		return lightSum;
 	}
