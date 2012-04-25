@@ -75,15 +75,17 @@ public class RayTracer implements IRenderer {
      */
     protected Color castRay(int x, int y) {
     	Vec averageColor = new Vec();
-    	for (double i = (double)x; i < (double)(x + 1); i += 0.5) {
-    		for (double j = (double)y; j < (double)(y + 1); j += 0.5) {
+		double stepSize = (double)1 / (double)scene.superSamplingWidth;
+		double scaleDown = (double)1 / ((double)scene.superSamplingWidth * (double)scene.superSamplingWidth);
+    	for (double i = (double)x; i < (double)(x + 1); i += stepSize) {
+    		for (double j = (double)y; j < (double)(y + 1); j += stepSize) {
     	        Ray ray = scene.camera.constructRayThroughPixel(i, j);
     	        Hit hit = scene.findIntersection(ray);
 
     			averageColor.add(scene.calcColor(hit, ray, x, y));
     		}
     	}
-    	averageColor.scale(0.25);
+    	averageColor.scale(scaleDown);
     	
         return averageColor.toColor();
     }

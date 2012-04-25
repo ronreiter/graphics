@@ -50,11 +50,18 @@ public class Camera {
 			upDirection.normalize();
 		}
 
+		if (parameters.get("look-at") != null) {
+			direction = new Vec(parameters.get("look-at"));
+			direction.sub(eye.toVec());
+			direction.normalize();
+		}
+
 		if (parameters.get("screen-width") != null)
     	    viewportWidth = Double.parseDouble(parameters.get("screen-width"));
 
 		if (parameters.get("screen-height") != null)
         	viewportDist = Double.parseDouble(parameters.get("screen-dist"));
+
 
         calculateVectors();
     }
