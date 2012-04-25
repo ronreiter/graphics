@@ -101,7 +101,11 @@ public class Scene implements IInitable {
 	 *            Hitting ray
 	 * @return
 	 */
-	public Vec calcColor(Hit hit, Ray ray, int x, int y) {
+	public Vec calcColor(Hit hit, Ray ray, int x, int y, int iteration) {
+		if (iteration == 0) {
+			return new Vec();
+		}
+		
 		if (hit == null) {
 			return getBackgroundColor(x, y);
 		}
@@ -116,7 +120,11 @@ public class Scene implements IInitable {
 			lightSum.add(light.getIllumination(hit, ray));
 
 		}
-
+		Vec reflection = new Vec(hit.surface.normalAt(hit.intersection, ray));
+		reflection.reflect(ray.direction);		
+		
+		lightSum.add(calcColor(hit, new Ray(hit.intersection, reflection), x, y, iteration - 1));
+				
 		return lightSum;
 	}
 

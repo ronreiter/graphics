@@ -109,7 +109,6 @@ public class Light {
 
 		lightSum.scale(lightDistanceAttenuation);
 
-
 		return lightSum;
 	}
 }

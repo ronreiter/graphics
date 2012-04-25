@@ -82,7 +82,7 @@ public class RayTracer implements IRenderer {
     	        Ray ray = scene.camera.constructRayThroughPixel(i, j);
     	        Hit hit = scene.findIntersection(ray);
 
-    			averageColor.add(scene.calcColor(hit, ray, x, y));
+    			averageColor.add(scene.calcColor(hit, ray, x, y, 4));
     		}
     	}
     	averageColor.scale(scaleDown);
