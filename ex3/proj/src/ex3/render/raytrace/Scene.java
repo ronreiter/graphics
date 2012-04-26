@@ -32,6 +32,8 @@ public class Scene implements IInitable {
 	protected Camera camera;
 	protected int width;
 	protected int height;
+	
+	private final static double EPSILON_DISTANCE = 0.0001;
 
 	public Scene(int width, int height) {
 		this.backgroundCol = new Vec(0.5, 0.5, 0.5);
@@ -114,7 +116,7 @@ public class Scene implements IInitable {
 			return getBackgroundColor(x, y);
 		}
 
-		// start from the ambient light color value
+		// start from the emission light color value
 		Vec lightSum = new Vec(hit.surface.material.emission);
 
 		// add the material ambient using the global ambient
@@ -125,18 +127,24 @@ public class Scene implements IInitable {
 
 		}
 
+		// add recusive reflection
 		if (hit.surface.material.reflectance > 0) {
 			Vec reflection = new Vec(ray.direction);
 			reflection.reflect(hit.surface.normalAt(hit.intersection, ray));
 			Ray reflectionRay = new Ray(hit.intersection, reflection);
+			
+			// the reflection needs to occur outside the intersection point
+			Vec epsilon = reflectionRay.direction.clone();
+			epsilon.scale(EPSILON_DISTANCE);
+			reflectionRay.origin.add(epsilon);
+			
 			Hit reflectionHit = findIntersection(reflectionRay);
 
-			Vec recursiveRayColor = calcColor(reflectionHit, reflectionRay, x, y, iteration - 1);
+			// why do we need to create a new vector?
+			Vec recursiveRayColor = new Vec(calcColor(reflectionHit, reflectionRay, x, y, iteration - 1));
 
 			recursiveRayColor.scale(hit.surface.material.reflectance);
-
 			lightSum.add(recursiveRayColor);
-
 		}
 
 		lightSum.limit();

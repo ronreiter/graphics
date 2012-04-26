@@ -16,6 +16,7 @@ public class RayTracer implements IRenderer {
     protected int height;
     protected Scene scene;
     protected Camera camera;
+	private static final int MAX_REFLECTION_RECURSION = 10;
 
     /**
      * Inits the renderer with scene description and sets the target canvas to
@@ -82,7 +83,7 @@ public class RayTracer implements IRenderer {
     	        Ray ray = scene.camera.constructRayThroughPixel(i, j);
     	        Hit hit = scene.findIntersection(ray);
 
-    			averageColor.add(scene.calcColor(hit, ray, x, y, 4));
+    			averageColor.add(scene.calcColor(hit, ray, x, y, MAX_REFLECTION_RECURSION));
     		}
     	}
     	averageColor.scale(scaleDown);
