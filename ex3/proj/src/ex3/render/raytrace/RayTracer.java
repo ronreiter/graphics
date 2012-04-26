@@ -35,7 +35,7 @@ public class RayTracer implements IRenderer {
     public void init(SceneDescriptor sceneDesc, int width, int height, File path) {
         this.width = width;
         this.height = height;
-        scene = new Scene();
+        scene = new Scene(width, height);
         camera = new Camera(width, height);
 
         scene.init(sceneDesc.getSceneAttributes());

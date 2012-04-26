@@ -24,10 +24,15 @@ public class SpotLight extends Light {
 
 	public Vec getIllumination(Hit hit, Ray ray) {
 		Vec lightSum = super.getIllumination(hit, ray);
+
 		Vec lightDirection =  new Vec(hit.intersection, this.pos);
 		lightDirection.normalize();
-		lightSum.scale(lightDirection.dotProd(this.direction));
-		
+		double spotAttenuation = lightDirection.dotProd(this.direction);
+
+		if (spotAttenuation > 0) {
+			lightSum.scale(spotAttenuation);
+		}
+
 		return lightSum;
 	}
 

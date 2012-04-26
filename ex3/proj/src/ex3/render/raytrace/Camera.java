@@ -59,7 +59,7 @@ public class Camera {
 		if (parameters.get("screen-width") != null)
     	    viewportWidth = Double.parseDouble(parameters.get("screen-width"));
 
-		if (parameters.get("screen-height") != null)
+		if (parameters.get("screen-dist") != null)
         	viewportDist = Double.parseDouble(parameters.get("screen-dist"));
 
 
@@ -104,7 +104,6 @@ public class Camera {
 		lookAt.add(up);
         
         Vec rayDirection = new Vec(lookAt, eye);
-        rayDirection.normalize();
 
 		// Note - this is a trivial Orthographic camera
 		return new Ray(eye, rayDirection);

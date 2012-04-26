@@ -406,4 +406,9 @@ public class Vec {
         return new Point3D(x, y, z);
     }
 
+	public void limit() {
+		x = limitColor(x);
+		y = limitColor(y);
+		z = limitColor(z);
+	}
 }

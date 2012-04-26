@@ -24,9 +24,9 @@ public class Light {
 		this.scene = scene;
 		this.pos = new Point3D(0, 0, 0);
 		this.color = new Vec(1,1,1);
-        this.kc = 0;
-        this.kl = 0.03;
-        this.kq = 0.001;
+        this.kc = 1;
+        this.kl = 0;
+        this.kq = 0;
 	}
 
 	public void init(Map<String, String> attributes) {
@@ -45,6 +45,10 @@ public class Light {
 	private boolean lightBlocked(Hit hit, Ray lightRay) {
 		// shoot a ray from the light and make sure that we hit what we saw.
 		Hit lightHit = scene.findIntersection(lightRay);
+		if (lightHit == null) {
+			return false;
+		}
+
 		return (lightHit.surface != hit.surface);
 	}
 	
@@ -52,6 +56,14 @@ public class Light {
 		Vec lightSum = new Vec();
 
 		Vec lightDirection =  new Vec(hit.intersection, this.pos);
+
+		// it's more efficient to get both distance types
+		double lightDistanceAttenuation = 1 / (
+				this.kc +
+						this.kl * lightDirection.length() +
+						this.kq * lightDirection.lengthSquared());
+
+
 		lightDirection.normalize();
 		Ray lightRay = new Ray(this.pos, lightDirection);
 
@@ -59,16 +71,6 @@ public class Light {
 			return lightSum;
 		}
 		
-		// it's more efficient to get both distance types
-		double lightDistanceAttenuation = 1 / (
-						this.kc +
-						this.kl * lightDirection.length() +
-						this.kq * lightDirection.lengthSquared());
-
-		if (lightDistanceAttenuation > 1) {
-			lightDistanceAttenuation = 1;
-		}
-
 		Vec lightHitNormal = hit.surface.normalAt(hit.intersection, lightRay);
 		lightHitNormal.normalize();
 
@@ -76,12 +78,11 @@ public class Light {
 		Vec diffuse = hit.surface.material.diffuse.clone();
 		Vec specular = hit.surface.material.specular.clone();
 
-
 		// Lambert diffusion
 		// multiply by the light color, diffusion amount by angle, and inverse square (3d distance) light attenuation
 		// we negate the result because the light direction is facing the normal of the plane
 		double diffusionAmount = -lightHitNormal.dotProd(lightDirection);
-
+		
 		if (diffusionAmount < 0) {
 			diffusionAmount = 0;
 		}

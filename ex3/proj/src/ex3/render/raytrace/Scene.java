@@ -1,6 +1,6 @@
 package ex3.render.raytrace;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -30,14 +30,18 @@ public class Scene implements IInitable {
 	protected List<Object3D> surfaces;
 	protected List<Light> lights;
 	protected Camera camera;
+	protected int width;
+	protected int height;
 
-	public Scene() {
-		backgroundCol = new Vec(0.5, 0.5, 0.5);
-		ambientLight = new Vec(0.5, 0.5, 0.5);
-		surfaces = new LinkedList<Object3D>();
-		lights = new LinkedList<Light>();
-		superSamplingWidth = 1;
-		backgroundTexture = null;
+	public Scene(int width, int height) {
+		this.backgroundCol = new Vec(0.5, 0.5, 0.5);
+		this.ambientLight = new Vec(0.5, 0.5, 0.5);
+		this.surfaces = new LinkedList<Object3D>();
+		this.lights = new LinkedList<Light>();
+		this.superSamplingWidth = 1;
+		this.backgroundTexture = null;
+		this.width = width;
+		this.height = height;
 	}
 
 	public void init(Map<String, String> attributes) {
@@ -120,11 +124,23 @@ public class Scene implements IInitable {
 			lightSum.add(light.getIllumination(hit, ray));
 
 		}
-		Vec reflection = new Vec(hit.surface.normalAt(hit.intersection, ray));
-		reflection.reflect(ray.direction);		
-		
-		lightSum.add(calcColor(hit, new Ray(hit.intersection, reflection), x, y, iteration - 1));
-				
+
+		if (hit.surface.material.reflectance > 0) {
+			Vec reflection = new Vec(ray.direction);
+			reflection.reflect(hit.surface.normalAt(hit.intersection, ray));
+			Ray reflectionRay = new Ray(hit.intersection, reflection);
+			Hit reflectionHit = findIntersection(reflectionRay);
+
+			Vec recursiveRayColor = calcColor(reflectionHit, reflectionRay, x, y, iteration - 1);
+
+			recursiveRayColor.scale(hit.surface.material.reflectance);
+
+			lightSum.add(recursiveRayColor);
+
+		}
+
+		lightSum.limit();
+
 		return lightSum;
 	}
 
@@ -169,7 +185,13 @@ public class Scene implements IInitable {
 			try {
 				File textureFile = new File(path.getParent(), backgroundTextureFileName);
 				if (textureFile.exists()) {
-					backgroundTexture = ImageIO.read(textureFile);
+					// scale the background to the size of the scene
+					BufferedImage scaledImage = new BufferedImage(width, height, 1);
+					Graphics2D graphics2D = scaledImage.createGraphics();
+					graphics2D.drawImage(ImageIO.read(textureFile), 0, 0, width, height, null);
+					graphics2D.dispose();
+
+					backgroundTexture = scaledImage;
 				} else {
 					System.out.println("Can't find texture at " + textureFile.getAbsolutePath());
 				}
