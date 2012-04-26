@@ -38,4 +38,6 @@ public abstract class Object3D implements IInitable {
 	 * @return Normalized vector
 	 */
 	public abstract Vec normalAt(Point3D intersection, Ray ray);
+	
+	public abstract BoundingBox getBoundingBox();
 }

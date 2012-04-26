@@ -108,4 +108,19 @@ public class Triangle extends Object3D {
 		return p2;
 	}
 
+	@Override
+	public BoundingBox getBoundingBox() {
+		return new BoundingBox(
+				new Point3D(minThree(p0.x, p1.x, p2.x), minThree(p0.y, p1.y, p2.y), minThree(p0.z, p1.z, p2.z)),
+				new Point3D(maxThree(p0.x, p1.x, p2.x), maxThree(p0.y, p1.y, p2.y), maxThree(p0.z, p1.z, p2.z)));
+	}
+	
+	private double minThree(double a, double b, double c) {
+		return Math.min(a, Math.min(b, c));
+	}
+
+	private double maxThree(double a, double b, double c) {
+		return Math.max(a, Math.max(b, c));
+	}
+
 }

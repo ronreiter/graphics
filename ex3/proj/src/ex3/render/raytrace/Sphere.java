@@ -102,4 +102,14 @@ public class Sphere extends Object3D {
 			radius = Double.parseDouble(attributes.get("radius"));
 		super.init(attributes);
 	}
+
+	@Override
+	public BoundingBox getBoundingBox() {
+		Point3D start = center.clone();
+		Point3D end = center.clone();
+		start.add(new Vec(-radius, -radius, -radius));
+		end.add(new Vec(radius, radius, radius));
+		return new BoundingBox(start, end);
+	}
+
 }

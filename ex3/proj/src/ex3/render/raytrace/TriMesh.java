@@ -82,9 +82,12 @@ public class TriMesh extends Object3D {
 
 	}
 
-	
+	@Override
+	public BoundingBox getBoundingBox() {
+		return null;
+	}
 
-	
+
 
 
 }
