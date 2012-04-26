@@ -7,6 +7,7 @@ import java.io.File;
 import ex3.parser.Element;
 import ex3.parser.SceneDescriptor;
 import ex3.render.IRenderer;
+import math.Point3D;
 import math.Ray;
 import math.Vec;
 
@@ -48,6 +49,14 @@ public class RayTracer implements IRenderer {
         for (Element e : sceneDesc.getObjects()) {
             scene.addObjectByName(e.getName(), e.getAttributes());
         }
+		
+		OctNode root = new OctNode(new BoundingBox(new Point3D(-1000, -1000, -1000), new Point3D(1000, 1000, 1000)));
+		for (Object3D surface : scene.surfaces) {
+			root.addChild(surface);
+		}
+		
+		System.out.println(root);
+		
     }
 
     /**

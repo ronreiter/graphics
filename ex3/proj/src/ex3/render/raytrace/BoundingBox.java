@@ -22,6 +22,23 @@ public class BoundingBox {
 		start = minPoint(a.start, b.start);
 		end = maxPoint(a.end, b.end);
 	}
+	
+	public boolean intersectsWith(BoundingBox box) {
+		return (intersectsWith(box.start) || intersectsWith(box.end));
+	}
+	
+	public boolean intersectsWith(Point3D point) {
+		return (point.x > start.x && point.y > start.y && point.z > start.z &&
+				point.x < end.x && point.y < end.y && point.z < end.z);
+	}
+	
+	public Point3D getMiddle() {
+		return new Point3D(
+				(start.x + end.x) / 2,
+				(start.y + end.y) / 2,
+				(start.z + end.z) / 2
+		);
+	}
 
 	/**
 	 * get the size of the bounding box

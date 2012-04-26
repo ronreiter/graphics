@@ -75,15 +75,15 @@ public class Triangle extends Object3D {
 
 		Vec rayOriginToIntersection = new Vec(intersectionPoint, ray.origin);
 
-		if (Vec.dotProd(rayOriginToIntersection, normal1) >= 0) {
+		if (Vec.dotProd(rayOriginToIntersection, normal1) > 0) {
 			return false;
 		}
 
-		if (Vec.dotProd(rayOriginToIntersection, normal2) >= 0) {
+		if (Vec.dotProd(rayOriginToIntersection, normal2) > 0) {
 			return false;
 		}
 
-		if (Vec.dotProd(rayOriginToIntersection, normal3) >= 0) {
+		if (Vec.dotProd(rayOriginToIntersection, normal3) > 0) {
 			return false;
 		}
 

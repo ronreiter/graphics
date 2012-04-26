@@ -26,7 +26,7 @@ public class TriMesh extends Object3D {
 				double length = new Vec(intersectionPoint, ray.origin).length();
 				length = length / ray.direction.length();
 
-				if (length < minDistance && tri.intersectTri(intersectionPoint, ray)) {			 
+				if (length < minDistance && tri.intersectTri(intersectionPoint, ray)) {
 					minDistance = length;
 					nearestTri = tri;
 					nearestIntersection = intersectionPoint;
@@ -84,7 +84,28 @@ public class TriMesh extends Object3D {
 
 	@Override
 	public BoundingBox getBoundingBox() {
-		return null;
+		if (mesh.size() == 0) {
+			return new BoundingBox(new Point3D(), new Point3D());
+		}
+		
+		BoundingBox firstObjectBox = mesh.get(0).getBoundingBox();
+
+		Point3D start = firstObjectBox.start;
+		Point3D end = firstObjectBox.end;
+		
+		for (int i = 1; i < mesh.size(); i++) {
+			BoundingBox box = mesh.get(i).getBoundingBox();
+
+			start.x = start.x < box.start.x ? start.x : box.start.x;
+			start.y = start.y < box.start.y ? start.y : box.start.y;
+			start.z = start.z < box.start.z ? start.z : box.start.z;
+
+			end.x = end.x > box.end.x ? end.x : box.end.x;
+			end.y = end.y > box.end.y ? end.y : box.end.y;
+			end.z = end.z > box.end.z ? end.z : box.end.z;
+		}
+
+		return new BoundingBox(start, end);
 	}
 
 
