@@ -124,14 +124,11 @@ public class Scene implements IInitable {
 
 		for (Light light : lights) {
 			lightSum.add(light.getIllumination(hit, ray));
-
 		}
 
-		// add recusive reflection
+		// add recursive reflection
 		if (hit.surface.material.reflectance > 0) {
-			Vec reflection = new Vec(ray.direction);
-			reflection.reflect(hit.surface.normalAt(hit.intersection, ray));
-			Ray reflectionRay = new Ray(hit.intersection, reflection);
+			Ray reflectionRay = new Ray(hit.intersection, ray.direction.reflect(hit.surface.normalAt(hit.intersection, ray)));
 			
 			// the reflection needs to occur outside the intersection point
 			Vec epsilon = reflectionRay.direction.clone();
@@ -146,8 +143,6 @@ public class Scene implements IInitable {
 			recursiveRayColor.scale(hit.surface.material.reflectance);
 			lightSum.add(recursiveRayColor);
 		}
-
-		lightSum.limit();
 
 		return lightSum;
 	}

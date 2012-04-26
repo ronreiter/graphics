@@ -45,6 +45,7 @@ public class Light {
 	private boolean lightBlocked(Hit hit, Ray lightRay) {
 		// shoot a ray from the light and make sure that we hit what we saw.
 		Hit lightHit = scene.findIntersection(lightRay);
+
 		if (lightHit == null) {
 			return false;
 		}
@@ -70,7 +71,7 @@ public class Light {
 		if (lightBlocked(hit, lightRay)) {
 			return lightSum;
 		}
-		
+
 		Vec lightHitNormal = hit.surface.normalAt(hit.intersection, lightRay);
 		lightHitNormal.normalize();
 
