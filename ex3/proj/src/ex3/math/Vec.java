@@ -1,4 +1,4 @@
-package math;
+package ex3.math;
 
 
 import java.awt.*;

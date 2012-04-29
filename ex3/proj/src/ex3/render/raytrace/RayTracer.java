@@ -7,9 +7,9 @@ import java.io.File;
 import ex3.parser.Element;
 import ex3.parser.SceneDescriptor;
 import ex3.render.IRenderer;
-import math.Point3D;
-import math.Ray;
-import math.Vec;
+import ex3.math.Point3D;
+import ex3.math.Ray;
+import ex3.math.Vec;
 
 public class RayTracer implements IRenderer {
 

@@ -1,4 +1,4 @@
-package math;
+package ex3.math;
 
 /**
  * Created by IntelliJ IDEA.

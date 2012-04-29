@@ -8,10 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import math.Point3D;
-import math.Ray;
-import math.Vec;
-import sun.jvm.hotspot.utilities.BitMap;
+import ex3.math.Ray;
+import ex3.math.Vec;
 
 import javax.imageio.ImageIO;
 

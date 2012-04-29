@@ -1,4 +1,4 @@
-package math;
+package ex3.math;
 
 /**
  * This will work only if you will add the Vec Class from Ex2 - Make sure its working properly.

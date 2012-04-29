@@ -1,7 +1,7 @@
 package ex3.render.raytrace;
 
-import math.Point3D;
-import math.Vec;
+import ex3.math.Point3D;
+import ex3.math.Vec;
 
 public class BoundingBox {
 	public Point3D start;

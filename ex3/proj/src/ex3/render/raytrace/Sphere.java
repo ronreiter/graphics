@@ -2,11 +2,9 @@ package ex3.render.raytrace;
 
 import java.util.Map;
 
-import math.Point3D;
-import math.Ray;
-import math.Vec;
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+import ex3.math.Point3D;
+import ex3.math.Ray;
+import ex3.math.Vec;
 
 
 /**
